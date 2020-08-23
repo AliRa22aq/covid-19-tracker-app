@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,23 +27,94 @@ const useStyleTypography = makeStyles({
   });
 
 export default function GlobalData() {
+
+    
   const classes = useStyles();
   const classTypography = useStyleTypography();
 
-  return (
+  const [globalData, SetGlobalData] = useState();
+  const total_cases = globalData && globalData.results && globalData.results[0].total_cases
+  const total_unresolved = globalData && globalData.results && globalData.results[0].total_unresolved;
+  const total_recovered = globalData && globalData.results && globalData.results[0].total_recovered
+  const total_deaths = globalData && globalData.results && globalData.results[0].total_deaths 
+
+  const [dataLoading, SetDataLoading] = useState(false);
+
+    useEffect(()=> {
+        async function fetchGlobaldata() {
+            SetDataLoading(true);
+            const APIresponse = await fetch('https://api.thevirustracker.com/free-api?global=stats');
+            console.log(APIresponse)
+            const datafromAPI = await APIresponse.json();
+            console.log(datafromAPI);
+            SetGlobalData(datafromAPI)
+            SetDataLoading(false);
+        }
+        fetchGlobaldata();
+    },[] )
+
+    if (dataLoading) {
+        return (
+            <div className={classes.root}>
+              <Paper elevation = {3}> 
+                  <div className = {classTypography.root}> 
+                            <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
+                            Loading...
+                            </Typography>
+                            <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
+                                   Global Data
+                            </Typography>
+                  </div>
+                </Paper>
+                <Paper elevation = {3}>
+                  <div className = {classTypography.root} > 
+                            <Typography variant="h4" gutterBottom style = {{color: 'rgba(0,0,255,0.5)' , fontWeight: "bold"}} >
+                            Loading...
+                            </Typography>
+                            <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(0,0,255,0.5)' , fontWeight: "bold"}}>
+                                    Active
+                            </Typography>
+                  </div>
+              </Paper>
+              <Paper elevation = {3}> 
+                  <div className = {classTypography.root}> 
+                            <Typography variant="h4" gutterBottom style = {{color: 'rgba(0,255,0,0.5)', fontWeight: "bold"}}>
+                            Loading...
+                            </Typography>
+                            <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(0,255,0,0.5)', fontWeight: "bold"}}>
+                                    Recovered
+                            </Typography>
+                  </div>
+              </Paper>
+              <Paper elevation = {3}> 
+                  <div className = {classTypography.root}> 
+                            <Typography variant="h4" gutterBottom style = {{color: 'rgba(255,69,0,1)', fontWeight: "bold"}}>
+                                Loading...
+                            </Typography>
+                            <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(255,69,0,1)', fontWeight: "bold"}}>
+                                   Fatalities
+                            </Typography>
+                  </div>
+              </Paper>
+              </div>
+          );
+}
+
+
+return (
     <div className={classes.root}>
       <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
                     <CountUp
-                            start = {0}
-                            end = {1000}
-                            duration = {2.5}
-                            separator = ","
-                    />
+                    start = {0}
+                    end = { total_cases}
+                    duration = {2.5}
+                    separator = ","
+                    />               
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
-                            Global Data
+                           Global Data
                     </Typography>
           </div>
         </Paper>
@@ -49,11 +122,12 @@ export default function GlobalData() {
           <div className = {classTypography.root} > 
                     <Typography variant="h4" gutterBottom style = {{color: 'rgba(0,0,255,0.5)' , fontWeight: "bold"}} >
                     <CountUp
-                            start = {0}
-                            end = {1000}
-                            duration = {2.5}
-                            separator = ","
+                    start = {0}
+                    end = {total_unresolved}
+                    duration = {2.5}
+                    separator = ","
                     />
+ 
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(0,0,255,0.5)' , fontWeight: "bold"}}>
                             Active
@@ -64,11 +138,11 @@ export default function GlobalData() {
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'rgba(0,255,0,0.5)', fontWeight: "bold"}}>
                     <CountUp
-                            start = {0}
-                            end = {1000}
-                            duration = {2.5}
-                            separator = ","
-                    />
+                    start = {0}
+                    end = {total_recovered}
+                    duration = {2.5}
+                    separator = ","
+                    />  
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(0,255,0,0.5)', fontWeight: "bold"}}>
                             Recovered
@@ -79,10 +153,10 @@ export default function GlobalData() {
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'rgba(255,69,0,1)', fontWeight: "bold"}}>
                     <CountUp
-                            start = {0}
-                            end = {1000}
-                            duration = {2.5}
-                            separator = ","
+                    start = {0}
+                    end = {total_deaths}
+                    duration = {2.5}
+                    separator = ","
                     />
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(255,69,0,1)', fontWeight: "bold"}}>
