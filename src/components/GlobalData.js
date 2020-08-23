@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import CountUp from 'react-countup';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +32,15 @@ export default function GlobalData() {
     <div className={classes.root}>
       <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
-                    <Typography variant="h4" gutterBottom>
-                            100
+                    <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
+                    <CountUp
+                            start = {0}
+                            end = {1000}
+                            duration = {2.5}
+                            separator = ","
+                    />
                     </Typography>
-                    <Typography variant="subtitle2" gutterBottom>
+                    <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
                             Global Data
                     </Typography>
           </div>
@@ -42,7 +48,12 @@ export default function GlobalData() {
         <Paper elevation = {3}>
           <div className = {classTypography.root} > 
                     <Typography variant="h4" gutterBottom style = {{color: 'rgba(0,0,255,0.5)' , fontWeight: "bold"}} >
-                            100
+                    <CountUp
+                            start = {0}
+                            end = {1000}
+                            duration = {2.5}
+                            separator = ","
+                    />
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(0,0,255,0.5)' , fontWeight: "bold"}}>
                             Active
@@ -52,7 +63,12 @@ export default function GlobalData() {
       <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'rgba(0,255,0,0.5)', fontWeight: "bold"}}>
-                            100
+                    <CountUp
+                            start = {0}
+                            end = {1000}
+                            duration = {2.5}
+                            separator = ","
+                    />
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(0,255,0,0.5)', fontWeight: "bold"}}>
                             Recovered
@@ -62,7 +78,12 @@ export default function GlobalData() {
       <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'rgba(255,69,0,1)', fontWeight: "bold"}}>
-                            100
+                    <CountUp
+                            start = {0}
+                            end = {1000}
+                            duration = {2.5}
+                            separator = ","
+                    />
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'rgba(255,69,0,1)', fontWeight: "bold"}}>
                            Fatalities
