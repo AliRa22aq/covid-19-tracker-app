@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
+import NumberFormat from 'react-number-format';
 
 
 
@@ -50,8 +51,8 @@ export default function GlobalData() {
             SetGlobalData(datafromAPI)
             SetDataLoading(false);
         }
-        fetchGlobaldata();
-    },[] )
+        fetchGlobaldata(); 
+    },[])
 
     if (dataLoading) {
         return (
@@ -108,10 +109,11 @@ return (
                     <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
                     <CountUp
                     start = {0}
-                    end = { total_cases}
+                    end = {total_cases}
                     duration = {2.5}
                     separator = ","
-                    />               
+                    />                       
+
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
                            Global Data
