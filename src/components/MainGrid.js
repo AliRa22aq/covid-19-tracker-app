@@ -21,7 +21,7 @@ export default function MainGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs = {4}>
           <Paper className={classes.paper}>
               <GlobalData />
