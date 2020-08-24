@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import GlobalData from './GlobalData'
+import CountriesData from './CountriesData'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,9 +27,26 @@ export default function MainGrid() {
               <GlobalData />
           </Paper>
         </Grid>
+
+
         <Grid item xs = {8}>
-          <Paper className={classes.paper}>Country Data</Paper>
+            <Grid container spacing={2}>
+
+                    <Grid item xs = {12}> 
+           
+                             <CountriesData />          
+          
+                    </Grid>
+
+                    <Grid item xs = {12}> 
+            
+                            Country Data by chart         
+    
+                    </Grid>
+            </Grid>
         </Grid>
+
+
       </Grid>
 
     </div>
