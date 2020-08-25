@@ -34,11 +34,10 @@ export default function GlobalData() {
   const classTypography = useStyleTypography();
 
   const [globalData, SetGlobalData] = useState();
-  console.log(globalData)
-  const total_cases = globalData && globalData.results && globalData.results[0].total_cases
-  const total_unresolved = globalData && globalData.results && globalData.results[0].total_unresolved;
-  const total_recovered = globalData && globalData.results && globalData.results[0].total_recovered
-  const total_deaths = globalData && globalData.results && globalData.results[0].total_deaths 
+  const total_cases = globalData && globalData.total_cases
+  const total_unresolved = globalData && globalData.total_unresolved;
+  const total_recovered = globalData &&  globalData.total_recovered
+  const total_deaths = globalData && globalData.total_deaths 
 
   const [dataLoading, SetDataLoading] = useState(false);
 
@@ -47,7 +46,7 @@ export default function GlobalData() {
             SetDataLoading(true);
             const APIresponse = await fetch('https://api.thevirustracker.com/free-api?global=stats');
             const datafromAPI = await APIresponse.json();
-            SetGlobalData(datafromAPI)
+            SetGlobalData(datafromAPI.results[0])
             SetDataLoading(false);
         }
         fetchGlobaldata(); 
