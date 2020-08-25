@@ -2,12 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import CountUp from 'react-countup';
-import NumberFormat from 'react-number-format';
 import { Grid } from '@material-ui/core';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,21 +27,19 @@ export default function CountriesData() {
   const classes = useStyles();
   const classTypography = useStyleTypography();
 
-
   const [CountryData, SetCountryData] = useState();
  
   useEffect(()=> {
       async function fetchCountrydata() {
           
           const CountryAPIresponse = await fetch('https://api.thevirustracker.com/free-api?countryTotals=ALL');
-          console.log(CountryAPIresponse)
           const countryDatafromAPI = await CountryAPIresponse.json();
-          console.log(countryDatafromAPI);
-          SetCountryData(countryDatafromAPI)
-          }
+          SetCountryData(countryDatafromAPI.countryitems[0])
+        }
           fetchCountrydata(); 
   },[])
 
+  const countryName = CountryData && CountryData[15].title
   return (
     <div className={classes.root}>
       <Grid container > 
@@ -55,7 +48,7 @@ export default function CountriesData() {
           <div className = {classTypography.root}> 
 
                     <Typography variant="h5" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
-                    {CountryData && CountryData.countryitems[0] && CountryData.countryitems[0][118].title}
+                        {countryName}
                     </Typography>
           </div>
         </Paper>
@@ -67,7 +60,7 @@ export default function CountriesData() {
         <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
-                    {CountryData && CountryData.countryitems[0] && CountryData.countryitems[0][118].total_cases}                
+                    
 
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
@@ -80,7 +73,7 @@ export default function CountriesData() {
         <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
-                    {CountryData && CountryData.countryitems[0] && CountryData.countryitems[0][118].total_recovered}               
+                                 
 
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
@@ -93,7 +86,7 @@ export default function CountriesData() {
         <Paper elevation = {3}> 
           <div className = {classTypography.root}> 
                     <Typography variant="h4" gutterBottom style = {{color: 'black', fontWeight: "bold"}}>
-                    {CountryData && CountryData.countryitems[0] && CountryData.countryitems[0][118].total_deaths}                  
+                                
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom style = {{color: 'black)', fontWeight: "bold"}}>
                     Deaths
@@ -108,3 +101,4 @@ export default function CountriesData() {
       </div>
   );
 }
+
