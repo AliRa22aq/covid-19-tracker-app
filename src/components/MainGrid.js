@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import GlobalData from './GlobalData'
 import CountriesData from './CountriesData'
+import {ContryPicker} from './ContryPicker'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,10 +22,10 @@ export default function MainGrid() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item xs = {4}>
           <Paper className={classes.paper}>
-              <GlobalData />
+                             <GlobalData />
           </Paper>
         </Grid>
 
@@ -33,6 +34,7 @@ export default function MainGrid() {
             <Grid container spacing={2}>
 
                     <Grid item xs = {12}> 
+                            <ContryPicker /> 
            
                              <CountriesData />          
           
@@ -43,8 +45,10 @@ export default function MainGrid() {
                             Country Data by chart         
     
                     </Grid>
-            </Grid>
+                </Grid>
+
         </Grid>
+
 
 
       </Grid>
