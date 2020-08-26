@@ -42,14 +42,17 @@ export default function MainGrid({x}) {
 
                     <Grid item xs = {12}> 
             
-   
-    
+                        <Chart  x={x}/>
+
+                    
+
+
                     </Grid>
                 </Grid>
 
         </Grid>
 
-        <Chart  />
+
 
       </Grid>
 
