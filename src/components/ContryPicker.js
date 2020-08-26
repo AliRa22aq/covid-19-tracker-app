@@ -4,48 +4,34 @@ import { NativeSelect, FormControl } from '@material-ui/core';
 
 
 
-export const ContryPicker = () => {
+export const ContryPicker = ({handleCountryChange}) => {
 
     const [fetchedCountry, SetfetchedCountry] = useState([{}]);
 
+
     useEffect(() => {
         async function fetchCountry() {
-
             const Countryresponse = await fetch('https://api.thevirustracker.com/free-api?countryTotals=ALL');
             const countriesData = await Countryresponse.json();
-            SetfetchedCountry(countriesData.countryitems[0])
+            SetfetchedCountry(countriesData.countryitems[0]) 
 
         }
         fetchCountry();
     }, [])
 
-    //const countryObject = fetchedCountry;  // object
-    // const countryArray = Object.keys(fetchedCountry) // Array of objects
-    // const countryArrayval = Object.values(fetchedCountry) // Array of objects
-    // const countrydata = countryArray[0]
-    // const sepcificcountry = countrydata["1"]
-    // //const countryArraystuff = fetchedCountry[countryArray]
-    // const totalcountries = countryArray.length   // number of countries
-
-    // console.log(fetchedCountry)
-    // console.log(countryArray)
-    // console.log(countryArrayval)
-    // console.log(countryArrayval)
-
-   //console.log(countryArrayval)
+    //console.log(fetchedCountry)
 
     return (
         <div>
             <FormControl>
-                <NativeSelect>
+                <NativeSelect defaultValue="" onChange = {(e) => handleCountryChange(e.target.value)} >
 
-                    {Object.values(fetchedCountry).map((val) => {
-                        return( 
-                            <option> {val.title}  </option>
+                    {Object.keys(fetchedCountry).map((val,i) => {
+                        return (
+                            <option key={i} value = {val}>  {fetchedCountry[val].title}  </option>
                         )
                     })}
 
-                
                 </NativeSelect>
             </FormControl>
         </div>
