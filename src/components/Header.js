@@ -5,8 +5,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
 import CountryInput from './CountryInput'
+import {ContryPicker} from './ContryPicker'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,8 +64,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar() {
+
+
+
+export default function Header({handleCountryChange}) {
+
+    
   const classes = useStyles();
+
 
   return (
     <div className={classes.root}>
@@ -75,7 +82,7 @@ export default function SearchAppBar() {
           COVID-19 Tracker
           </Typography>
           <div className={classes.search}>
-            <CountryInput />
+                      <ContryPicker handleCountryChange = {handleCountryChange}/>
           </div>
         </Toolbar>
       </AppBar>
