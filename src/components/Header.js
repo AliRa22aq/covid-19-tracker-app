@@ -76,7 +76,7 @@ export default function Header({handleCountryChange}) {
         <Toolbar>
   
           <Typography className={classes.title} variant="h6" noWrap>
-          COVID-19 Tracker
+                                COVID-19 Tracker
           </Typography>
           <div className={classes.search}>
                       <ContryPicker handleCountryChange = {handleCountryChange}/>
