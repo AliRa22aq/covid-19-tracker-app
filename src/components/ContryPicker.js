@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
 
 
-
-
 export const ContryPicker = ({handleCountryChange}) => {
 
     const [fetchedCountry, SetfetchedCountry] = useState([{}]);
