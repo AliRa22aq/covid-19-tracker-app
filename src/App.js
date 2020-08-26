@@ -9,16 +9,18 @@ function App() {
   const [D, SetD] = useState();
 
   const handleCountryChange = async (country) => {
+    if (country == 0 ){
+      SetD(0)
+    } else { 
     SetD(country)
   }
+}
 
   return (
     <div>
       <Header handleCountryChange = {handleCountryChange} />
 
       <MainGrid x = {D}/>
-
-
 
     </div>
   );
