@@ -12,7 +12,6 @@ export default function ContryPicker({handleCountryChange}) {
             const Countryresponse = await fetch('https://api.thevirustracker.com/free-api?countryTotals=ALL');
             const countriesData = await Countryresponse.json();
             SetfetchedCountry(countriesData.countryitems[0]) 
-
         }
         fetchCountry();
     }, [])
@@ -23,9 +22,10 @@ export default function ContryPicker({handleCountryChange}) {
         <div>
             <FormControl>
                 <NativeSelect defaultValue="" onChange = {(e) => handleCountryChange(e.target.value)} >
-
-                    {Object.keys(fetchedCountry).map((val,i) => {
+                                        <option value = {0}>  Global  </option>
+                                {Object.keys(fetchedCountry).map((val,i) => {
                         return (
+                            
                             <option key={i} value = {val}>  {fetchedCountry[val].title}  </option>
                         )
                     })}
