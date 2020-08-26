@@ -4,9 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
 
-
-
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -117,6 +114,8 @@ export default function GlobalData() {
                     </Typography>
                 </div>
             </Paper>
+
+
             <Paper elevation={3}>
                 <div className={classTypography.root} >
                     <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }} >
@@ -133,6 +132,8 @@ export default function GlobalData() {
                     </Typography>
                 </div>
             </Paper>
+
+
             <Paper elevation={3}>
                 <div className={classTypography.root}>
                     <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
@@ -148,6 +149,8 @@ export default function GlobalData() {
                     </Typography>
                 </div>
             </Paper>
+
+
             <Paper elevation={3}>
                 <div className={classTypography.root}>
                     <Typography variant="h4" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
