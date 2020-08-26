@@ -1,15 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Header from './components/Header'
 import MainGrid from './components/MainGrid'
 
 
 function App() {
+
+  const [D, SetD] = useState();
+
+  const handleCountryChange = async (country) => {
+    SetD(country)
+  }
+
   return (
     <div>
-      <Header />
-      
-      <MainGrid />
+      <Header handleCountryChange = {handleCountryChange} />
+
+      <MainGrid x = {D}/>
 
 
 
