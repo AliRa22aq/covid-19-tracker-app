@@ -52,7 +52,7 @@ export default function CountriesData2({ x }) {
 
     console.log(fetchedCountryData);
 
-    const country_title = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].title
+    //const country_title = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].title
     const country_cases = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].total_cases
     const country_recovered = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].total_recovered
     const country_deaths = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].total_deaths
