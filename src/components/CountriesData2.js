@@ -49,10 +49,6 @@ export default function CountriesData2({ x }) {
         fetchedCountryData();
 
     }, [])
-
-
-    console.log(fetchedCountryData);
-
     //const country_title = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].title
     const country_cases = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].total_cases
     const country_recovered = fetchedCountryData && fetchedCountryData[x] && fetchedCountryData[x].total_recovered
