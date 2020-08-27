@@ -104,8 +104,9 @@ export default function GlobalData() {
                 <div className={classTypography.root}>
                     <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
                         <Card height = {100} style={{ backgroundColor: "#42A5F5", padding: 0}}>
-                            Total Cases
+                            <subtitle> Total Cases</subtitle>
                         </Card>
+                        
                         <div style= {{padding:20}}> 
                         <CountUp start={0} end={total_cases} duration={2.5} separator="," />
                         </div>
