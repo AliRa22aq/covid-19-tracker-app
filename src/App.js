@@ -6,21 +6,22 @@ import MainGrid from './components/MainGrid'
 
 function App() {
 
-  const [D, SetD] = useState();
+  const [CountryNumber, SetCountryNumber] = useState();
 
   const handleCountryChange = async (country) => {
     if (country === "0" ){
-      SetD(0)
+      SetCountryNumber(0)
     } else { 
-    SetD(country)
+      SetCountryNumber(country)
+    
   }
-}
+  }
 
   return (
     <div>
       <Header handleCountryChange = {handleCountryChange} />
 
-      <MainGrid x = {D}/>
+      <MainGrid x = {CountryNumber}/>
 
     </div>
   );
