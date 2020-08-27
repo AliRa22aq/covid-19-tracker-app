@@ -1,10 +1,9 @@
-
 import React, {useState, useEffect} from 'react';
 import {Pie} from 'react-chartjs-2';
 
 
 
-function GlobalChart({x}) {
+function GlobalChart() {
 
   const [globalData, SetGlobalData] = useState();
 
@@ -32,7 +31,7 @@ function GlobalChart({x}) {
     datasets: [{
       data: [total_deaths, total_recovered, total_unresolved],
       backgroundColor: [
-      '#FF6384',
+      '#E64A19',
       '#90ee90',
       '#FFCE56'
       ],
@@ -47,7 +46,7 @@ function GlobalChart({x}) {
   
   return (
     <div>
-    <h1> Global </h1>
+    <h1 style= {{textAlign: "center"}}> Global </h1>
     <Pie data={data} />
   </div>
   )
