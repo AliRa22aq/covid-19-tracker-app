@@ -17,7 +17,7 @@ function GlobalChart({x}) {
       fetchGlobaldata();
   }, [SetGlobalData])
 
-  const total_cases = globalData && globalData.total_cases
+  //const total_cases = globalData && globalData.total_cases
   const total_unresolved = globalData && globalData.total_unresolved;
   const total_recovered = globalData && globalData.total_recovered
   const total_deaths = globalData && globalData.total_deaths
