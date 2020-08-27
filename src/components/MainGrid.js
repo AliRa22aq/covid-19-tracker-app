@@ -6,12 +6,14 @@ import GlobalData from './GlobalData'
 import GlobalChart from './GlobalChart'
 import CountriesData2 from './CountriesData2' 
 import CountryChart from './CountryChart'
+import GlobalTimeline from './GlobalTimeline'
 
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+
   },
   paper: {
     padding: theme.spacing(2),
@@ -26,7 +28,7 @@ export default function MainGrid({x}) {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs = {4}>
+        <Grid item xs = {3}>
           <Paper className={classes.paper}>
 
               {x? <CountriesData2 x = {x}/> : <GlobalData />}
@@ -41,8 +43,7 @@ export default function MainGrid({x}) {
                     <Grid item xs = {12}> 
                             
                     {x? <CountryChart x = {x}/> : <GlobalChart  x={x}/>}
-                        
-                        
+                                             
 
                     </Grid>
                 </Grid>
