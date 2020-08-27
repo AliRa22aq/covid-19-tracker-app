@@ -17,8 +17,6 @@ function CountryChart({x}) {
     fetchedGlobalChart();
   }, [SetfetchedGlobalChartData])
 
-  console.log(fetchedGlobalChartData);
-
   const title = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].title
   //const total_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_cases
   const total_recovered = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_recovered
@@ -35,7 +33,7 @@ function CountryChart({x}) {
     datasets: [{
       data: [total_deaths, total_recovered, total_active_cases],
       backgroundColor: [
-      '#FF6384',
+      '#E64A19',
       '#90ee90',
       '#FFCE56'
       ],
@@ -50,10 +48,12 @@ function CountryChart({x}) {
   
   return (
     <div>
-    <h1> {title} </h1>
+    <h1 style= {{textAlign: "center"}}> {title} </h1>
     <Pie data={data} />
+
   </div>
   )
+
 }
 
 export default CountryChart
