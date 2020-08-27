@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
 import { Grid } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -112,85 +113,64 @@ export default function CountriesData2({ x }) {
         <div className={classes.root}>
             <Paper elevation={3}>
                 <div className={classTypography.root}>
-                    <Grid container>
-                        <Grid item xs={3} >
-                        <Typography variant="subtitle2" gutterBottom style={{ color: 'black)', fontWeight: "bold" }}>
-                                Total Cases
+                    <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
+
+                    <Card height = {100} style={{ backgroundColor: "#42A5F5", padding: 0}}>
+                            Total Cases
+                        </Card>
+                        <div style= {{padding:20}}> 
+                        <CountUp start={0} end={country_cases} duration={2.5} separator="," />
+                        </div>
                     </Typography>
-                        </Grid>
-                        <Grid item xs={9} >
-                            <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
-                                <CountUp
-                                    start={0}
-                                    end={country_cases}
-                                    duration={2.5}
-                                    separator=","
-                                />
-                            </Typography>
-
-
-                        </Grid>
-                    </Grid>
-
 
                 </div>
             </Paper>
-
-
-
-
-            <Paper elevation={3}>
-                <div className={classTypography.root} >
-                    <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }} >
-                        <CountUp
-                            start={0}
-                            end={total_active_cases}
-                            duration={2.5}
-                            separator=","
-                        />
-
-                    </Typography>
-
-
-                    <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }}>
-                        Active Cases
-                    </Typography>
-                </div>
-            </Paper>
-
 
             <Paper elevation={3}>
                 <div className={classTypography.root}>
-                    <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
-                        <CountUp
-                            start={0}
-                            end={country_recovered}
-                            duration={2.5}
-                            separator=","
-                        />
+                    <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
+
+                    <Card height = {100} style={{ backgroundColor: "#FFC300", padding: 0}}>
+                            Active Cases
+                        </Card>
+                        <div style= {{padding:20}}> 
+                        <CountUp start={0} end={total_active_cases} duration={2.5} separator="," />
+                        </div>
                     </Typography>
-                    <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
-                        Recovered
-                    </Typography>
+
                 </div>
             </Paper>
-
 
             <Paper elevation={3}>
                 <div className={classTypography.root}>
-                    <Typography variant="h4" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
-                        <CountUp
-                            start={0}
-                            end={country_deaths}
-                            duration={2.5}
-                            separator=","
-                        />
+                    <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
+
+                    <Card height = {100} style={{ backgroundColor: "#8BC34A", padding: 0}}>
+                            Recovered
+                        </Card>
+                        <div style= {{padding:20}}> 
+                        <CountUp start={0} end={country_recovered} duration={2.5} separator="," />
+                        </div>
                     </Typography>
-                    <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
-                        Deaths
-                    </Typography>
+
                 </div>
             </Paper>
+
+            <Paper elevation={3}>
+                <div className={classTypography.root}>
+                    <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
+
+                    <Card height = {100} style={{ backgroundColor: "#E64A19", padding: 0}}>
+                            Deaths
+                        </Card>
+                        <div style= {{padding:20}}> 
+                        <CountUp start={0} end={country_deaths} duration={2.5} separator="," />
+                        </div>
+                    </Typography>
+
+                </div>
+            </Paper>
+
         </div>
     );
 }
