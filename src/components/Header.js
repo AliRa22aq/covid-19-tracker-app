@@ -83,7 +83,7 @@ export default function Header({handleCountryChange}) {
                                 COVID-19 Tracker
           </Typography>
           <div className={classes.search}>
-                      <ContryPicker handleCountryChange = {handleCountryChange}/>
+                        <ContryPicker handleCountryChange = {handleCountryChange} />
           </div>
         </Toolbar>
       </AppBar>
