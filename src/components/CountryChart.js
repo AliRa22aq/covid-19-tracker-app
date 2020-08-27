@@ -20,7 +20,7 @@ function CountryChart({x}) {
   console.log(fetchedGlobalChartData);
 
   const title = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].title
-  const total_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_cases
+  //const total_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_cases
   const total_recovered = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_recovered
   const total_deaths = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_deaths
   const total_active_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_active_cases
