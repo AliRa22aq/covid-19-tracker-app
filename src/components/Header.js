@@ -8,20 +8,27 @@ import ContryPicker from './ContryPicker'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow:1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
-    display: 'none',
+    color: "white",
+    padding: 30,
+    flexGrow: 5,
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
   },
   search: {
-    position: 'relative',
+    //background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    border: 1,
+    borderRadius: 3,
+    color: 'white',
+    height: 5,
+    padding: '20px 30px',
+ 
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -61,9 +68,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-
 export default function Header({handleCountryChange}) {
 
     
@@ -72,7 +76,7 @@ export default function Header({handleCountryChange}) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style= {{backgroundColor: "#34495E"}}>
         <Toolbar>
   
           <Typography className={classes.title} variant="h6" noWrap>
