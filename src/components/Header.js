@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import ContryPicker from './ContryPicker'
-
+import CoronaImage from './image.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
+
   search: {
     //background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     border: 1,
@@ -80,7 +81,7 @@ export default function Header({handleCountryChange}) {
         <Toolbar>
   
           <Typography className={classes.title} variant="h6" noWrap>
-                                COVID-19 Tracker
+                               COVID-19 Tracker
           </Typography>
           <div className={classes.search}>
                         <ContryPicker handleCountryChange = {handleCountryChange} />
