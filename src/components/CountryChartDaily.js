@@ -1,9 +1,3 @@
-import React, {useState, useEffect} from 'react';
-//import CountryChart from './CountryChart';
-
-
-
-
 
 function CountryChartDaily({ x, y }) {
     // console.log(y)
