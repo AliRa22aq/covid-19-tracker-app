@@ -43,6 +43,7 @@ export default function MainGrid({x}) {
             <Grid container spacing={4}>
 
                     <Grid item xs = {12}> 
+                    
                             
                     {x? <CountryChart x = {x}/> : <GlobalChart  x={x}/>}
                     <CountryChartDaily x= {x}/>
