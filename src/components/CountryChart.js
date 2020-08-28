@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Pie } from 'react-chartjs-2';
 
 
-
 function CountryChart({ x }) {
 
   const [fetchedGlobalChartData, SetfetchedGlobalChartData] = useState([{}]);
