@@ -6,21 +6,21 @@ import {Line} from 'react-chartjs-2';
 
 function GlobalChart() {
 
-  const [globalData, SetGlobalData] = useState();
+  //const [globalData, SetGlobalData] = useState();
 
   useEffect(() => {
       async function fetchGlobaldata() {
-          const APIresponse = await fetch('https://api.thevirustracker.com/free-api?global=stats');
-          const datafromAPI = await APIresponse.json();
-          SetGlobalData(datafromAPI.results[0])
+          //const APIresponse = await fetch('https://api.thevirustracker.com/free-api?global=stats');
+          //const datafromAPI = await APIresponse.json();
+         //SetGlobalData(datafromAPI.results[0])
       }
       fetchGlobaldata();
-  }, [SetGlobalData])
+  }, [])
 
   //const total_cases = globalData && globalData.total_cases
-  const total_unresolved = globalData && globalData.total_unresolved;
-  const total_recovered = globalData && globalData.total_recovered
-  const total_deaths = globalData && globalData.total_deaths
+  //const total_unresolved = globalData && globalData.total_unresolved;
+  //const total_recovered = globalData && globalData.total_recovered
+  //const total_deaths = globalData && globalData.total_deaths
 
   
   const [dailyData, SetDailyData] = useState({})
