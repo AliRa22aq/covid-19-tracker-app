@@ -5,14 +5,14 @@ import { Pie } from 'react-chartjs-2';
 function CountryChart({ x }) {
 
   const [fetchedGlobalChartData, SetfetchedGlobalChartData] = useState([{}]);
-  const [fetchedCountryCode, SetfetchedCountryCode] = useState([{}]);
+  //const [fetchedCountryCode, SetfetchedCountryCode] = useState([{}]);
 
   useEffect(() => {
     async function fetchedGlobalChart() {
       const Countryresponse = await fetch('https://api.thevirustracker.com/free-api?countryTotals=ALL');
       const countriesData = await Countryresponse.json();
       SetfetchedGlobalChartData(countriesData.countryitems[0])
-      SetfetchedCountryCode(countriesData.countryitems[0])
+    //  SetfetchedCountryCode(countriesData.countryitems[0])
       
     }
     fetchedGlobalChart();
