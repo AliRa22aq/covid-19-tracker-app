@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Header from './components/Header'
 import MainGrid from './components/MainGrid'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
       <Header handleCountryChange = {handleCountryChange} />
 
       <MainGrid x = {CountryNumber}/>
+
+      <Footer />
 
     </div>
   );
