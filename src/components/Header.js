@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     height: 5,
     padding: '20px 30px',
  
-    borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
