@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
+import Loading from './Loading'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,6 +48,7 @@ export default function GlobalData() {
         fetchGlobaldata();
     }, [])
 
+    console.log(globalData)
     const total_cases = (globalData && globalData.total_cases)
     const total_unresolved = globalData && globalData.total_unresolved;
     const total_recovered = globalData && globalData.total_recovered
@@ -55,19 +58,19 @@ export default function GlobalData() {
         return (
             <div className={classes.root}>
                 <Paper elevation={3}>
-                    <div className={classTypography.root}>
-                        <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
-                            Loading...
+                    <div className={classTypography.root} >
+                        <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }} >
+                        <Loading /> 
                             </Typography>
-                        <Typography variant="subtitle2" gutterBottom style={{ color: 'black)', fontWeight: "bold" }}>
-                            Global Data
+                        <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }}>
+                            Total Cases
                             </Typography>
                     </div>
                 </Paper>
                 <Paper elevation={3}>
                     <div className={classTypography.root} >
                         <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }} >
-                            Loading...
+                        <Loading /> 
                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }}>
                             Active
@@ -77,7 +80,7 @@ export default function GlobalData() {
                 <Paper elevation={3}>
                     <div className={classTypography.root}>
                         <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
-                            Loading...
+                        <Loading /> 
                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
                             Recovered
@@ -87,7 +90,7 @@ export default function GlobalData() {
                 <Paper elevation={3}>
                     <div className={classTypography.root}>
                         <Typography variant="h4" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
-                            Loading...
+                        <Loading /> 
                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
                             Fatalities
