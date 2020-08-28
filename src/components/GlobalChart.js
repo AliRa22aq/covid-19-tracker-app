@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Pie} from 'react-chartjs-2';
+
 import {Line} from 'react-chartjs-2';
 
 
@@ -45,29 +45,6 @@ function GlobalChart() {
    return ( v.deaths.total )
  })
 
-
- 
-// Pi chart
-  const data = {
-    labels: [
-      'Deaths',
-      'Recovered',
-      'Active Cases'
-    ],
-    datasets: [{
-      data: [total_deaths, total_recovered, total_unresolved],
-      backgroundColor: [
-      '#E64A19',
-      '#90ee90',
-      '#FFCE56'
-      ],
-      hoverBackgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#7CFC00'
-      ]
-    }]
-  };
   
    // LIne CHart
 
