@@ -26,21 +26,6 @@ function CountryChart({ x }) {
 
   // Fetch Country Code for daily Data
 
-  const codes = Object.values(fetchedCountryCode).map((value) => {
-    return (value)
-  })
- const C = codes && codes[x-1] && codes[x-1].code;
-
- console.log(C)
-
- let URL = "https://api.thevirustracker.com/free-api?countryTimeline="
- if (x){
-   URL = '${URL}+${C}'
- }
- console.log(URL)
- 
-
-
 
 
 // Pi Chart
