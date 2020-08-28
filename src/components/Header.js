@@ -4,7 +4,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import ContryPicker from './ContryPicker'
-import CoronaImage from './image.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,7 +76,7 @@ export default function Header({handleCountryChange}) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style= {{backgroundColor: "#34495E"}}>
+      <AppBar position="static" style= {{backgroundColor: "#000"}}>
         <Toolbar>
   
           <Typography className={classes.title} variant="h6" noWrap>
