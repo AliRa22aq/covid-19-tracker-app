@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
 import { Grid } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
+import Loading from './Loading'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -63,8 +65,7 @@ export default function CountriesData2({ x }) {
                 <Paper elevation={3}>
                     <div className={classTypography.root}>
                         <Typography variant="h4" gutterBottom style={{ color: 'black', fontWeight: "bold" }}>
-                            Loading...
-                            </Typography>
+                        <Loading />                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'black)', fontWeight: "bold" }}>
                             Global Data
                             </Typography>
@@ -73,7 +74,7 @@ export default function CountriesData2({ x }) {
                 <Paper elevation={3}>
                     <div className={classTypography.root} >
                         <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }} >
-                            Loading...
+                        <Loading /> 
                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,0,255,0.5)', fontWeight: "bold" }}>
                             Active
@@ -83,7 +84,7 @@ export default function CountriesData2({ x }) {
                 <Paper elevation={3}>
                     <div className={classTypography.root}>
                         <Typography variant="h4" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
-                            Loading...
+                        <Loading /> 
                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(0,255,0,0.5)', fontWeight: "bold" }}>
                             Recovered
@@ -93,7 +94,7 @@ export default function CountriesData2({ x }) {
                 <Paper elevation={3}>
                     <div className={classTypography.root}>
                         <Typography variant="h4" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
-                            Loading...
+                        <Loading /> 
                             </Typography>
                         <Typography variant="subtitle2" gutterBottom style={{ color: 'rgba(255,69,0,1)', fontWeight: "bold" }}>
                             Fatalities
