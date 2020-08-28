@@ -6,7 +6,7 @@ import GlobalData from './GlobalData'
 import GlobalChart from './GlobalChart'
 import CountriesData2 from './CountriesData2' 
 import CountryChart from './CountryChart'
-import CountryChartDaily from './CountryChartDaily'
+
 
 
 
@@ -46,7 +46,7 @@ export default function MainGrid({x}) {
                     
                             
                     {x? <CountryChart x = {x}/> : <GlobalChart  x={x}/>}
-                    <CountryChartDaily x= {x}/>
+                  
                     
                                              
 
