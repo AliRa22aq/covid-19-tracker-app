@@ -1,21 +1,25 @@
-import React, {useState, useEffect} from 'react';
-import {Pie} from 'react-chartjs-2';
+import React, { useState, useEffect } from 'react';
+import { Pie } from 'react-chartjs-2';
+import CountryChartDaily from './CountryChartDaily'
 
 
-function CountryChart({x}) {
+
+
+function CountryChart({ x }) {
 
   const [fetchedGlobalChartData, SetfetchedGlobalChartData] = useState([{}]);
+  const [fetchedCountryCode, SetfetchedCountryCode] = useState([{}]);
 
   useEffect(() => {
     async function fetchedGlobalChart() {
-
       const Countryresponse = await fetch('https://api.thevirustracker.com/free-api?countryTotals=ALL');
       const countriesData = await Countryresponse.json();
       SetfetchedGlobalChartData(countriesData.countryitems[0])
-
+      SetfetchedCountryCode(countriesData.countryitems[0])
+      
     }
     fetchedGlobalChart();
-  }, [SetfetchedGlobalChartData])
+  }, [])
 
   const title = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].title
   //const total_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_cases
@@ -23,7 +27,29 @@ function CountryChart({x}) {
   const total_deaths = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_deaths
   const total_active_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_active_cases
 
-  
+  // Fetch Country Code for daily Data
+  var URL = 'https://api.thevirustracker.com/free-api?countryTimeline'
+  var codes = []
+
+  if (x) {
+    codes = Object.values(fetchedCountryCode).map((value) => {
+      return (`${URL}=${value.code}`)
+    })
+  }
+
+ 
+
+
+
+//const dailyDataforCHart = Object.keys(dailyData).map((value) => {
+  //  return (value)
+    //})
+
+    //console.log(dailyDataforCHart)
+
+
+
+// Pi Chart
   const data = {
     labels: [
       'Deaths',
@@ -45,13 +71,18 @@ function CountryChart({x}) {
     }]
   };
   
+
+
+ 
+
+
   
   return (
     <div>
     <h1 style= {{textAlign: "center"}}> {title} </h1>
     <Pie data={data} />
-
   </div>
+  
   )
 
 }
