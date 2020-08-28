@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Pie } from 'react-chartjs-2';
-import CountryChartDaily from './CountryChartDaily'
-
 
 
 
@@ -28,24 +26,21 @@ function CountryChart({ x }) {
   const total_active_cases = fetchedGlobalChartData && fetchedGlobalChartData[x] && fetchedGlobalChartData[x].total_active_cases
 
   // Fetch Country Code for daily Data
-  var URL = 'https://api.thevirustracker.com/free-api?countryTimeline'
-  var codes = []
 
-  if (x) {
-    codes = Object.values(fetchedCountryCode).map((value) => {
-      return (`${URL}=${value.code}`)
-    })
-  }
+  const codes = Object.values(fetchedCountryCode).map((value) => {
+    return (value)
+  })
+ const C = codes && codes[x-1] && codes[x-1].code;
 
+ console.log(C)
+
+ let URL = "https://api.thevirustracker.com/free-api?countryTimeline="
+ if (x){
+   URL = '${URL}+${C}'
+ }
+ console.log(URL)
  
 
-
-
-//const dailyDataforCHart = Object.keys(dailyData).map((value) => {
-  //  return (value)
-    //})
-
-    //console.log(dailyDataforCHart)
 
 
 
@@ -70,10 +65,6 @@ function CountryChart({ x }) {
       ]
     }]
   };
-  
-
-
- 
 
 
   
