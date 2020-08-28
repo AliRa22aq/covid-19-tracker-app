@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
-import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Loading from './Loading'
 
@@ -48,7 +47,6 @@ export default function GlobalData() {
         fetchGlobaldata();
     }, [])
 
-    console.log(globalData)
     const total_cases = (globalData && globalData.total_cases)
     const total_unresolved = globalData && globalData.total_unresolved;
     const total_recovered = globalData && globalData.total_recovered
